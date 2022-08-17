@@ -1,5 +1,10 @@
 <?php
-    $database = connect("localhost", "hallucine", "root", "Admin-01");
+    try{
+        $database = connect("localhost", "hallucine", "root", "Admin-0");
+    }catch(Exception $error){
+        echo "Erreur de connexion à la BDD.<br>";
+        die("ERROR: ".$error->getMessage());
+    }
     $sql = "SELECT * FROM `movies`;";
     $results = $database->query($sql);
     while ($row = $results->fetch()) {
