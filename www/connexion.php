@@ -18,9 +18,9 @@
         echo $value["title"]. " " . $value["release_date"] ."<br>";
     }
 
-    $sqlInsert = "INSERT INTO `movies` (`id`, `title`, `image_url`, `runtime`, `description`, `release_date`) VALUES (NULL, 'J\'en ai pas', 'film.jpg', '7688', 'Desc de film.', '2022-10-05')";
+    // $sqlInsert = "INSERT INTO `movies` (`id`, `title`, `image_url`, `runtime`, `description`, `release_date`) VALUES (NULL, 'J\'en ai pas', 'film.jpg', '7688', 'Desc de film.', '2022-10-05')";
 
-    $database->query($sqlInsert);
+    // $database->query($sqlInsert);
 
     function connect($host, $dbname, $login, $password){
         return new PDO("mysql:host=".$host.";dbname=".$dbname, $login, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
