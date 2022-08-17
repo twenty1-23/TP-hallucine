@@ -7,8 +7,9 @@
     }
     $sql = "SELECT * FROM `movies`;";
     $results = $database->query($sql);
-    while ($row = $results->fetch()) {
-        echo $row["id"] . $row["title"] . " " . $row["release_date"] . "<br>";
+    // var_dump($results->fetch(PDO::FETCH_ASSOC));
+    while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
+       echo $row["title"] . " " . $row["release_date"] . "<br>";
     }
 
     function connect($host, $dbname, $login, $password){
