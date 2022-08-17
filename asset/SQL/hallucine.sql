@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 13 août 2022 à 20:45
+-- Généré le : mer. 17 août 2022 à 15:48
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 7.4.29
 
@@ -155,7 +155,8 @@ CREATE TABLE `movies_castings` (
 
 INSERT INTO `movies_castings` (`id`, `movie_id`, `casting_id`) VALUES
 (6, 4, 13),
-(7, 2, 16);
+(7, 2, 16),
+(8, 2, 15);
 
 -- --------------------------------------------------------
 
@@ -308,7 +309,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT pour la table `movies_castings`
 --
 ALTER TABLE `movies_castings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `movies_genres`
