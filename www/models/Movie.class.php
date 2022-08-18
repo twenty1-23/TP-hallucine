@@ -20,13 +20,13 @@ class Movie{
         $this->_addedDate = new DateTime($addedDate);
     }
 
-    public function getId(){return $this->_id};
-    public function getTitle(){return $this->_title};
-    public function getImageUrl(){return $this->_imageUrl};
-    public function getRuntime(){return $this->_runtime};
-    public function getDescription(){return $this->_description};
-    public function getRelaseDate(){return $this->_releaseDate};
-    public function getAddedDate(){return $this->_addedDate};
+    public function getId(){return $this->_id;}
+    public function getTitle(){return $this->_title;}
+    public function getImageUrl(){return $this->_imageUrl;}
+    public function getRuntime(){return $this->_runtime;}
+    public function getDescription(){return $this->_description;}
+    public function getRelaseDate(){return $this->_releaseDate;}
+    public function getAddedDate(){return $this->_addedDate;}
     
 }
 

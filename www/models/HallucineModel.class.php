@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model.class.php";
+require_once "Movie.class.php";
 
 class HallucineModel extends Model{
     private $_movies;
@@ -16,7 +17,7 @@ class HallucineModel extends Model{
 
         foreach ($rows as $key => $value) {
             $movie = new Movie($value["id"], $value["title"], $value["image_url"], $value["runtime"], $value["description"], $value["release_date"], $value["added_date"]);
-            $_movies[] = $movie;
+            $this->_movies[] = $movie;
         }
     }
 
