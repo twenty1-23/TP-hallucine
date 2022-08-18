@@ -30,7 +30,7 @@
 
     $request->execute([$title, $imageUrl, $runtime, $description, $releaseDate]);
 
-    // $database->query($sqlInsert);
+    $request->closeCursor();
 
     function connect($host, $dbname, $login, $password){
         return new PDO("mysql:host=".$host.";dbname=".$dbname, $login, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
