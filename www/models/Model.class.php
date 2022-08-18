@@ -2,10 +2,10 @@
 abstract class Model{
     private static $_pdo;
 
-    protected function _getDatabase(){
+    protected function _getDatabase($host, $dbname, $login, $password){
         if(self::$_pdo === null){
             try{
-                self::$_pdo = self::_connect("localhost", "hallucine", "root", "Admin-01");
+                self::$_pdo = self::_connect($host, $dbname, $login, $password);
             }catch(Exception $error){
                 echo "Erreur de connexion à la BDD.<br>";
                 die("ERROR: ".$error->getMessage());
