@@ -16,8 +16,8 @@ class Movie{
         $this->_imageUrl = $imageUrl;
         $this->_runtime = $runtime;
         $this->_description = $description;
-        $this->_releaseDate = $releaseDate;
-        $this->_addedDate = $addedDate;
+        $this->_releaseDate = new DateTime($releaseDate);
+        $this->_addedDate = new DateTime($addedDate);
     }
 
     public function getId(){return $this->_id};
