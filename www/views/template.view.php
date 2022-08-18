@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style/styles.css" rel="stylesheet">
-    <title>Halluciné - Films</title>
+    <title><?= isset($pageTitle) ? $pageTitle : "Halluciné" ?></title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 <option value="release_date">Par date de sortie</option>
             </select>
             <div id="items">
-                
+                <?= $content ?>
             </div>
         </div>
     </div>

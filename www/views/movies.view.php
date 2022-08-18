@@ -17,3 +17,9 @@ for($i=0; $i < count($movies);$i++) :
 </div>
 
 <?php endfor; ?>
+
+<?php
+$content = ob_get_clean();
+$pageTitle = "Halluciné - Films";
+require "template";
+?>
