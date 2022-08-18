@@ -18,7 +18,17 @@
         echo $value["title"]. " " . $value["release_date"] ."<br>";
     }
 
-    // $sqlInsert = "INSERT INTO `movies` (`id`, `title`, `image_url`, `runtime`, `description`, `release_date`) VALUES (NULL, 'J\'en ai pas', 'film.jpg', '7688', 'Desc de film.', '2022-10-05')";
+    $sqlInsert = "INSERT INTO `movies` (`title`, `image_url`, `runtime`, `description`, `release_date`) VALUES (?, ?, ?, ?, ?)";
+
+    $request = $database->prepare($sqlInsert);
+
+    $title = "Je sais pas";
+    $imageUrl = "je_sais_pas.jpg";
+    $runtime = 10800;
+    $description = "Ceci est la desc.";
+    $releaseDate = "1887-10-12";
+
+    $request->execute([$title, $imageUrl, $runtime, $description, $releaseDate]);
 
     // $database->query($sqlInsert);
 
