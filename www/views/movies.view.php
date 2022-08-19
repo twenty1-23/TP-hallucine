@@ -12,7 +12,7 @@ for($i=0; $i < count($movies);$i++) :
 
 <div class="item col">
     <a href="index.php?page=movie&movieid=<? $movies[$i]->getId(); ?>">
-        <img src="image/<?= $movies[$i]->getImageUrl(); ?> ">
+    <img src="<?= IMAGE_PATH.$movie->getImageUrl(); ?>" alt="<?= $movie->getTitle(); ?>">
         <br>
         <?= $movies[$i]->getTitle(); ?>
         <br>
