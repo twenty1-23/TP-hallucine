@@ -9,7 +9,7 @@ class HallucineController{
         $this->_hallucineModel = new HallucineModel;
     }
 
-    public function showMovies($sort){
+    public function showMovies(int $sort = HallucineModel::SORT_MOVIES_BY_TITLE){
         $hm = $this->_hallucineModel;
         $hm->requestMovies($sort);
         $movies = $hm->getMovies();
