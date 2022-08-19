@@ -8,15 +8,17 @@ ob_start();
 
 <?php
 for($i=0; $i < count($movies);$i++) : 
+
+    // echo $movies[$i]->getId();
 ?>
 
 <div class="item col">
-    <a href="index.php?page=movie&movieid=<? $movies[$i]->getId(); ?>">
+    <a href="index.php?page=movie&movieid=<?= $movies[$i]->getId(); ?>">
         <img src="image/<?= $movies[$i]->getImageUrl(); ?> ">
         <br>
         <?= $movies[$i]->getTitle(); ?>
         <br>
-        <?= $movies[$i]->getRelaseDate()->format("Y"); ?>
+        <?= $movies[$i]->getReleaseDate()->format("Y"); ?>
     </a>
 </div>
     

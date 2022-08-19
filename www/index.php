@@ -14,7 +14,7 @@ if(empty($_GET["page"])){
             $hallucineController->showMovies();
             break;
         case "movie":
-            $movieId = $_GET["movieid"];
+            $movieId = intval($_GET["movieid"]);
             $hallucineController->showMovie($movieId);
             break;
         default:
