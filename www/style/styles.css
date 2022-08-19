@@ -69,17 +69,17 @@ nav{
     margin-top: 10px;
 }
 
-#movie_section_content {
+#movie #movie_section_content {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-#movie_section_content_left img{
+#movie #movie_section_content_left img{
     width: 300px;
     padding: 40px;
 }
 
-#movie_section_content_right h2{
+#movie #movie_section_content_right h2{
     font-size: 32px;
 }
