@@ -77,6 +77,6 @@ nav{
     padding: 40px;
 }
 
-i {
-    color: white;
+#movie_section_content_right h2{
+    font-size: 32px;
 }
