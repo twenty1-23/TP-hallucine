@@ -14,7 +14,7 @@ for($i=0; $i < count($movies);$i++) :
 
 <div class="item col">
     <a href="index.php?page=movie&movieid=<?= $movies[$i]->getId(); ?>">
-        <img src="image/<?= $movies[$i]->getImageUrl(); ?> ">
+    <img src="<?= IMAGE_PATH.$movies[$i]->getImageUrl(); ?>" alt="<?= $movies[$i]->getTitle(); ?>">
         <br>
         <?= $movies[$i]->getTitle(); ?>
         <br>
@@ -29,5 +29,6 @@ for($i=0; $i < count($movies);$i++) :
 <?php
 $content = ob_get_clean();
 $pageTitle = "Halluciné - Films";
+$idBodyCss = "movies";
 require "template.view.php";
 ?>

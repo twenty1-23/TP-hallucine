@@ -28,5 +28,6 @@ ob_start();
 <?php
 $content = ob_get_clean();
 $pageTitle = "Halluciné - ".$movie->getTitle();
+$idBodyCss = "movie";
 require "template.view.php";
 ?>

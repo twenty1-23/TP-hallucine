@@ -9,7 +9,7 @@
     <title><?= isset($pageTitle) ? $pageTitle : "TP Halluciné" ?></title>
 </head>
 
-<body>
+<body id="<?=$idBodyCss?>">
     <header>HALLUCINE</header>
     <div id="container" class="container-fluid">
         <div class="row">
