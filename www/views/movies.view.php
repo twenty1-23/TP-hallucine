@@ -8,7 +8,7 @@ ob_start();
 for($i=0; $i < count($movies);$i++) : 
 ?>
 
-<div class="item">
+<div class="item col">
     <img src="image/<?= $movies[$i]->getImageUrl(); ?> ">
     <br>
     <?= $movies[$i]->getTitle(); ?>

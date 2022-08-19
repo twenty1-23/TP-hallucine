@@ -26,7 +26,7 @@ nav{
 
 #container{
     margin: 0px auto;
-    width: 100%;
+    /* width: 100%; */
 }
 
 #left, #right{
@@ -35,33 +35,36 @@ nav{
 }
 
 #left{
-    width: 20%;
+    /* width: 20%; */
     background-color: #333538;
 }
 
 #right{
-    width: 80%;
+    /* width: 80%; */
     background-color: #7c7f83;
     float: right;
 }
 
-#items{
+/* #items{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     max-width: 800px;
     gap: 10px;
     margin: 30px, auto, 0;
-}
+} */
 
 .item{
     font-size: 13px;
     text-align: center;
     color: #ffffff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: 300px;
+    /* width: 300px; */
 }
 
 .item img{
-    max-width: 160px;
+    max-width: 300px;
     height: auto;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
 }
