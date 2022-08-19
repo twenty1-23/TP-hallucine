@@ -27,5 +27,6 @@ for($i=0; $i < count($movies);$i++) :
 <?php
 $content = ob_get_clean();
 $pageTitle = "Halluciné - Films";
+$idBodyCss = "movies";
 require "template.view.php";
 ?>
