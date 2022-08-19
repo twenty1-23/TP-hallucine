@@ -10,7 +10,7 @@ class HallucineModel extends Model{
         $_movies = array();
         $sql = "SELECT * FROM `movies` ORDER BY title;";
 
-        $request = $this->_getDatabase("localhost", "hallucine", "root", "Admin-01")->prepare($sql);
+        $request = $this->_getDatabase("localhost", "hallucine", "root", "")->prepare($sql);
         $request->execute();
         $rows = $request->fetchAll(PDO::FETCH_ASSOC);
         $request->closeCursor();
