@@ -65,3 +65,18 @@ nav{
     max-width: 160px;
     height: auto;
 }
+
+#movie_section_content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#movie_section_content_left img{
+    width: 300px;
+    padding: 40px;
+}
+
+i {
+    color: white;
+}
