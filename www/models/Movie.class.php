@@ -20,7 +20,9 @@ class Movie{
         $this->_addedDate = new DateTime($addedDate);
     }
 
-    public function getId(){return $this->_id;}
+    public function getId(){
+        echo $this->_id;
+        return $this->_id;}
     public function getTitle(){return $this->_title;}
     public function getImageUrl(){return $this->_imageUrl;}
     public function getRuntime(){return $this->_runtime;}

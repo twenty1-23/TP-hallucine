@@ -9,11 +9,13 @@ for($i=0; $i < count($movies);$i++) :
 ?>
 
 <div class="item col">
-    <img src="image/<?= $movies[$i]->getImageUrl(); ?> ">
-    <br>
-    <?= $movies[$i]->getTitle(); ?>
-    <br>
-    <?= $movies[$i]->getRelaseDate()->format("Y"); ?>
+    <a href="index.php?page=movie&movieid=<? $movies[$i]->getId(); ?>">
+        <img src="image/<?= $movies[$i]->getImageUrl(); ?> ">
+        <br>
+        <?= $movies[$i]->getTitle(); ?>
+        <br>
+        <?= $movies[$i]->getRelaseDate()->format("Y"); ?>
+    </a>
 </div>
 
 <?php endfor; ?>
