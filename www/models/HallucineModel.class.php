@@ -23,8 +23,7 @@ class HallucineModel extends Model{
     }
 
     public function requestMovie(int $movieId){
-        $sql = "SELECT * FROM `movies` WHERE id = $movieId;";
-
+         $sql = "SELECT * FROM `movies` WHERE id = $movieId;";
         $request = $this->_getDatabase("localhost", "hallucine", "root", "Admin-01")->prepare($sql);
         $request->execute();
         $rows = $request->fetchAll(PDO::FETCH_ASSOC);
@@ -32,7 +31,6 @@ class HallucineModel extends Model{
         $value = $rows[0];
 
         $movie = new Movie($value["id"], $value["title"], $value["image_url"], $value["runtime"], $value["description"], $value["release_date"], $value["added_date"]);
-        
         $this->_movie = $movie;
     }
 

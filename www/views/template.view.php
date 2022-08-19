@@ -24,15 +24,15 @@
         </div>
             <div id="right" class="col-sm-10 col-lg-9 container">
                 <div class="row">
-                <select name="" id="" class="col-2">
-                <option value="title">Par titre</option>
-                <option value="added_date">Par date d'ajout</option>
-                <option value="release_date">Par date de sortie</option>
-            </select>
-            </div>
-            <div id="items" class="row">
+                    <select name="" id="" class="col-2">
+                        <option value="title">Par titre</option>
+                        <option value="added_date">Par date d'ajout</option>
+                        <option value="release_date">Par date de sortie</option>
+                    </select>
+                </div>
+                
                 <?= $content ?>
-            </div>
+
         </div>
     </div>
     <script src="bootstrap/js/bootstrap.js"></script>

@@ -4,6 +4,8 @@ ob_start();
 
 ?>
 
+<div id="items" class="row">
+
 <?php
 for($i=0; $i < count($movies);$i++) : 
 ?>
@@ -17,8 +19,10 @@ for($i=0; $i < count($movies);$i++) :
         <?= $movies[$i]->getRelaseDate()->format("Y"); ?>
     </a>
 </div>
-
+    
 <?php endfor; ?>
+
+</div>
 
 <?php
 $content = ob_get_clean();
