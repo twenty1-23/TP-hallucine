@@ -11,14 +11,15 @@ if(empty($_GET["page"])){
 }else{
     switch ($_GET["page"]) {
         case "movies":
-            $hallucineController->showMovies();
+            $sort = isset($_GET['sort']) ? $_GET['sort'] : 0;
+            $hallucineController->showMovies($sort);
             break;
         case "movie":
             $movieId = intval($_GET["movieid"]);
             $hallucineController->showMovie($movieId);
             break;
         default:
-            # code...
+            echo "Cas de page non géré...";
             break;
     }
 }

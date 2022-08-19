@@ -9,9 +9,10 @@ class HallucineController{
         $this->_hallucineModel = new HallucineModel;
     }
 
-    public function showMovies(){
-        $this->_hallucineModel->requestMovies();
-        $movies = $this->_hallucineModel->getMovies();
+    public function showMovies($sort){
+        $hm = $this->_hallucineModel;
+        $hm->requestMovies($sort);
+        $movies = $hm->getMovies();
         require "views/movies.view.php";
     }
 
