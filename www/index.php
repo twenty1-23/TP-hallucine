@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+// session_destroy();
+
+// var_dump($_SESSION['user']);
+
 require "config.php";
 
 require_once "controllers/HallucineController.controller.php";
@@ -21,7 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     if(empty($_GET["page"])){
-        $hallucineController->showLogin();
+        if (isset($_SESSION['user'])) {
+            $hallucineController->showMovies();
+        } else {
+            $hallucineController->showLogin();
+        }
     }else{
         switch ($_GET["page"]) {
             case 'login':
