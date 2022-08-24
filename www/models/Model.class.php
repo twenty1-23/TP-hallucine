@@ -14,6 +14,14 @@ abstract class Model{
         return self::$_pdo;
     }
 
+    protected function _getRows($host, $dbname, $login, $password, $sql):array{
+        $request = $this->_getDatabase($host, $dbname, $login, $password)->prepare($sql);
+        $request->execute();
+        $rows = $request->fetchAll(PDO::FETCH_ASSOC);
+        $request->closeCursor();
+        return $rows;
+    }
+
     private static function _connect($host, $dbname, $login, $password){
         $db = new PDO("mysql:host=".$host.";dbname=".$dbname, $login, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);

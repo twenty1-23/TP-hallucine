@@ -1,28 +1,48 @@
 <?php
 
+require "config.php";
+
 require_once "controllers/HallucineController.controller.php";
 
 $hallucineController = new HallucineController();
 
-if(empty($_GET["page"])){
-    $hallucineController->showLogin();
-}else{
-    switch ($_GET["page"]) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $params = explode("=", filter_var($_SERVER["QUERY_STRING"]));
+    // var_dump($params);
+    // var_dump($_SERVER);
+    switch ($params[1]) {
         case 'login':
             $hallucineController->showLogin();
             break;
-        case "movies":
-            $sort = isset($_GET['sort']) ? $_GET['sort'] : 0;
-            $hallucineController->showMovies($sort);
-            break;
-        case "movie":
-            $movieId = intval($_GET["movieid"]);
-            $hallucineController->showMovie($movieId);
-            break;
+        
         default:
-            echo "Cas de page non géré...";
+            
             break;
     }
+} else {
+    if(empty($_GET["page"])){
+        $hallucineController->showLogin();
+    }else{
+        switch ($_GET["page"]) {
+            case 'login':
+                $hallucineController->showLogin();
+                break;
+            case "movies":
+                $sort = isset($_GET['sort']) ? $_GET['sort'] : 0;
+                $hallucineController->showMovies($sort);
+                break;
+            case "movie":
+                $movieId = intval($_GET["movieid"]);
+                $hallucineController->showMovie($movieId);
+                break;
+            default:
+                echo "Cas de page non géré...";
+                break;
+        }
+    }
 }
+
+
+
 
 ?>
