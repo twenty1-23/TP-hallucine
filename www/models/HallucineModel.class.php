@@ -29,7 +29,7 @@ class HallucineModel extends Model{
                 break;
         }
 
-        $request = $this->_getDatabase("localhost", "hallucine", "root", "Admin-01")->prepare($sql);
+        $request = $this->_getDatabase(HOST, DB_NAME, LOGIN, PASSWORD)->prepare($sql);
         $request->execute();
         $rows = $request->fetchAll(PDO::FETCH_ASSOC);
         $request->closeCursor();

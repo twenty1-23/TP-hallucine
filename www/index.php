@@ -1,7 +1,5 @@
 <?php
 
-define("IMAGE_PATH", "image/");
-
 require_once "controllers/HallucineController.controller.php";
 
 $hallucineController = new HallucineController();
