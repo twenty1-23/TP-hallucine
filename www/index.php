@@ -7,9 +7,12 @@ require_once "controllers/HallucineController.controller.php";
 $hallucineController = new HallucineController();
 
 if(empty($_GET["page"])){
-    $hallucineController->showMovies();
+    $hallucineController->showLogin();
 }else{
     switch ($_GET["page"]) {
+        case 'login':
+            $hallucineController->showLogin();
+            break;
         case "movies":
             $sort = isset($_GET['sort']) ? $_GET['sort'] : 0;
             $hallucineController->showMovies($sort);
