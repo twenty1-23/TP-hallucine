@@ -31,6 +31,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <input type="submit" id='submit' value='login' >
 
+                <?php
+                    if(isset($loginStatus)){
+                        $error = "";
+                        switch ($loginStatus) {
+                            case HallucineModel::LOGIN_USER_NOT_FOUND:
+                                $error = "Utilisateur introuvable.";
+                                break;
+                            case HallucineModel::LOGIN_INCORRECT_PASSWORD:
+                                $error = "Mot de passe incorrect.";
+                                break;
+                            default:
+                                $error = "Erreur inconnue...";
+                                break;
+                        }
+                        if ($error != "") {
+                            echo "<p class='error'>$error</p>";
+                        }
+                    }
+                ?>
                 
             </form>
         </div>

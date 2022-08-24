@@ -16,11 +16,11 @@ class HallucineController{
             switch ($loginStatus) {
                 case HallucineModel::LOGIN_USER_NOT_FOUND:
                 case HallucineModel::LOGIN_INCORRECT_PASSWORD:
-                    echo $loginStatus;
                     require "views/login.view.php";
                     break;
                 case HallucineModel::LOGIN_OK:
                     $_SESSION['user'] = serialize($user);
+                    var_dump($_SESSION['user']);
                     $this->showMovies();
                     break;
                 default:

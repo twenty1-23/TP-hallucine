@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model.class.php";
+require_once "User.class.php";
 require_once "Movie.class.php";
 
 class HallucineModel extends Model{
