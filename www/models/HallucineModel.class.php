@@ -86,6 +86,21 @@ class HallucineModel extends Model{
         $this->_movie = $movie;
     }
 
+    public function requestMovieUserRating(int $userId, int $movieId): ?MovieUserRating{
+        $sql = "SELECT *  FROM `movies_users_ratings` WHERE `user_id` = $userId AND `movie_id` = $movieId;";
+        $rows = $this->_getRows(HOST, DB_NAME, LOGIN, PASSWORD, $sql);
+        if (count($rows) == 1) {
+            $value = $rows[0];
+            $movieUserRating = new MovieUserRating($value["id"], $value["user_id"], $value["movie_id"], $value["rate"]);
+            return $movieUserRating;
+        } else if(count($rows) > 1){
+            echo "Plus d'un MovieUserRating trouvé...";
+            return NULL;
+        } else {
+            return NULL;
+        }
+    }
+
     public function setMovieUserRating(int $userId, int $movieId, int $rate){
         $sql = "INSERT INTO `movies_users_ratings` (`user_id`, `movie_id`, `rate`) VALUES ('$userId', '$movieId', '$rate')";
         $this->_getRows(HOST, DB_NAME, LOGIN, PASSWORD, $sql);
