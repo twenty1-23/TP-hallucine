@@ -3,7 +3,10 @@ include "head.php";
 ?>
 
 <body id="<?=$idBodyCss?>">
-    <header>HALLUCINE</header>
+    <header>
+        <div><h1><a href="index.php">HALLUCINE</a></h1></div>
+        <div id="user"><?= isset($user) ? "Bienvenue, ".$user->getFirstname()." ".$user->getLastname()."<br><a href='index.php?page=logout'>Se déconnecter.</a>" : "<a href='index.php'>Se connecter.</a>"; ?></div>
+    </header>
     <div id="container" class="container-fluid">
         <div class="row">
             <div id="left" class="col-sm-2 col-lg-3">

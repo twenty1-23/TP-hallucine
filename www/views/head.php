@@ -1,3 +1,9 @@
+<?php
+if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

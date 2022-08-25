@@ -36,6 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             case 'login':
                 $hallucineController->showLogin();
                 break;
+            case 'logout':
+                session_destroy();
+                $hallucineController->showLogin();
+                break;
             case "movies":
                 $sort = isset($_GET['sort']) ? $_GET['sort'] : 0;
                 $hallucineController->showMovies($sort);

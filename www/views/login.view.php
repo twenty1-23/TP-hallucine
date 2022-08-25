@@ -31,6 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <input type="submit" id='submit' value='login' >
 
+                <a href="#">S'inscrire.</a>
+                <a href="index.php?page=movies">Continuer sans s'identifier.</a>
+
                 <?php
                     if(isset($loginStatus)){
                         $error = "";
