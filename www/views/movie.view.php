@@ -2,13 +2,25 @@
 
 ob_start();
 
+if (isset($user)) {
+    $userId = strval($user->getId());
+    $movieId = strval($movie->getId());
+    $action = HallucineModel::MOVIE_USER_RATE;
+}
+
 ?>
 
 <section id="movie_section">
     <div id="movie_section_content">
         <div id="movie_section_content_left">
             <img src="<?= IMAGE_PATH.$movie->getImageUrl(); ?>" alt="<?= $movie->getTitle(); ?>">
-            
+            <form id="form_rate" action="" method="post" style="display:<?= isset($user) ? "block" : "none"; ?>" >
+                <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="userId" value="<?= $userId; ?>">
+                <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="movieId" value="<?= $movieId; ?>">
+                <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="action" value="<?= $action ?>">
+                <input type="number" placeholder="Noter ce film." name="rate" pattern="[0-9]" value="<?=  IS_DEBUG ? random_int(5, 80) : ""; ?>">
+                <input type="submit" id='submit' value="<?= "Rate"; ?>" >
+            </form>
         </div>
         <div id="movie_section_content_right">
             <h2><?= $movie->getTitle(); ?></h2>

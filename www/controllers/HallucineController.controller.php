@@ -41,6 +41,10 @@ class HallucineController{
     }
 
     public function showMovie(int $movieId){
+        if(isset($_SESSION['user'])){
+            $user = unserialize($_SESSION['user']);
+        }
+
         $this->_hallucineModel->requestMovie($movieId);
         $movie = $this->_hallucineModel->getMovie();
         require "views/movie.view.php";

@@ -17,6 +17,10 @@ class HallucineModel extends Model{
     const LOGIN_INCORRECT_PASSWORD = 1;
     const LOGIN_OK = 2;
 
+    const MOVIE_USER_RATE = 0;
+    const MOVIE_USER_UPDATE_RATE = 1;
+    const MOVIE_USER_DELETE_RATE = 2;
+
     public function requestLogin(string $email, string $password){
         $email = $this->_checkInput($email);
         $sql = "SELECT * FROM users WHERE email = '$email'";
