@@ -18,7 +18,7 @@ if (isset($user)) {
                 <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="userId" value="<?= $userId; ?>">
                 <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="movieId" value="<?= $movieId; ?>">
                 <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="action" value="<?= $action ?>">
-                <input type="number" placeholder="Noter ce film." name="rate" pattern="[0-9]" value="<?=  IS_DEBUG ? random_int(5, 80) : ""; ?>">
+                <input type="number" placeholder="Noter ce film." name="rate" pattern="^([0-9]|[1-9][0-9]|100)$" value="<?=  IS_DEBUG ? random_int(5, 80) : ""; ?>">
                 <input type="submit" id='submit' value="<?= "Rate"; ?>" >
             </form>
         </div>

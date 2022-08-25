@@ -12,14 +12,17 @@ require_once "controllers/HallucineController.controller.php";
 $hallucineController = new HallucineController();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $params = explode("=", filter_var($_SERVER["QUERY_STRING"]));
-    // var_dump($params);
-    // var_dump($_SERVER);
-    switch ($params[1]) {
+    // $params = explode("=", filter_var($_SERVER["QUERY_STRING"]));
+    $params = array();
+    parse_str($_SERVER["QUERY_STRING"], $params);
+    switch ($params['page']) {
         case 'login':
             $hallucineController->showLogin();
             break;
-        
+        case 'movie':
+            echo "toto";
+            $hallucineController->showMovie($params['movieid']);
+            break;
         default:
             
             break;

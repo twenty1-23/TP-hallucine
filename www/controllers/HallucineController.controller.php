@@ -45,6 +45,21 @@ class HallucineController{
             $user = unserialize($_SESSION['user']);
         }
 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            switch ($_POST['action']) {
+                case HallucineModel::MOVIE_USER_RATE:
+                    $this->_hallucineModel->setMovieUserRating($_POST['userId'], $_POST['movieId'], $_POST['rate']);
+                    break;
+                
+                default:
+                    echo "cas de rating non géré...";
+                    break;
+            }
+        } else {
+            
+        }
+        
+
         $this->_hallucineModel->requestMovie($movieId);
         $movie = $this->_hallucineModel->getMovie();
         require "views/movie.view.php";

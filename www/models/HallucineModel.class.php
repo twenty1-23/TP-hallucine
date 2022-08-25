@@ -86,6 +86,11 @@ class HallucineModel extends Model{
         $this->_movie = $movie;
     }
 
+    public function setMovieUserRating(int $userId, int $movieId, int $rate){
+        $sql = "INSERT INTO `movies_users_ratings` (`user_id`, `movie_id`, `rate`) VALUES ('$userId', '$movieId', '$rate')";
+        $this->_getRows(HOST, DB_NAME, LOGIN, PASSWORD, $sql);
+    }
+
     public function getLoginStatus(){return $this->_loginStatus;}
     public function getMovies(){return $this->_movies;}
     public function getMovie(){return $this->_movie;}
