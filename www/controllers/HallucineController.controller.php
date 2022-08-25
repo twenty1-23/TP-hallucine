@@ -41,6 +41,9 @@ class HallucineController{
     }
 
     public function showMovie(int $movieId){
+        $this->_hallucineModel->requestMovie($movieId);
+        $movie = $this->_hallucineModel->getMovie();
+
         if(isset($_SESSION['user'])){
             $user = unserialize($_SESSION['user']);
         }
@@ -50,18 +53,21 @@ class HallucineController{
                 case HallucineModel::MOVIE_USER_RATE:
                     $this->_hallucineModel->setMovieUserRating($_POST['userId'], $_POST['movieId'], $_POST['rate']);
                     break;
-                
+                case HallucineModel::MOVIE_USER_UPDATE_RATE:
+                    $this->_hallucineModel->updateMovieUserRating($_POST['movieUserRatingId'], $_POST['rate']);
+                    break;
                 default:
                     echo "cas de rating non géré...";
                     break;
             }
+            $movieUserRating = $this->_hallucineModel->requestMovieUserRating($user->getId(), $movie->getId());
         } else {
-            
+            if(isset($user)){
+                $movieUserRating = $this->_hallucineModel->requestMovieUserRating($user->getId(), $movie->getId());
+            }
         }
         
 
-        $this->_hallucineModel->requestMovie($movieId);
-        $movie = $this->_hallucineModel->getMovie();
         require "views/movie.view.php";
     }
 }

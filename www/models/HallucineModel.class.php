@@ -3,6 +3,7 @@
 require_once "Model.class.php";
 require_once "User.class.php";
 require_once "Movie.class.php";
+require_once "MovieUserRating.class.php";
 
 class HallucineModel extends Model{
     private $_movies;
@@ -12,6 +13,7 @@ class HallucineModel extends Model{
     const SORT_MOVIES_BY_TITLE = 0;
     const SORT_MOVIES_BY_RELEASE_DATE = 1;
     const SORT_MOVIES_BY_ADDED_DATE = 2;
+    const SORT_MOVIES_BY_RATING = 3;
 
     const LOGIN_USER_NOT_FOUND = 0;
     const LOGIN_INCORRECT_PASSWORD = 1;
@@ -30,7 +32,8 @@ class HallucineModel extends Model{
             return;
         } else {
             $value = $rows[0];
-            if ($value["password"] !== $password) {
+            $bool = password_verify($password, $value["password"]);
+            if (!$bool) {
                 $this->_loginStatus = self::LOGIN_INCORRECT_PASSWORD;
                 return;
             } else {
@@ -64,6 +67,16 @@ class HallucineModel extends Model{
                 break;
             case self::SORT_MOVIES_BY_ADDED_DATE:
                 $sql = "SELECT * FROM `movies` ORDER BY added_date DESC;";
+                break;
+            case self::SORT_MOVIES_BY_RATING:
+                $sql = "SELECT movies_users_ratings.movie_id, movies.title, AVG(movies_users_ratings.rate) as average_rate
+                FROM movies_users_ratings
+                    INNER JOIN movies
+                    ON movies_users_ratings.movie_id = movies.id
+                GROUP BY movies.id  
+                ORDER BY `average_rate` ASC";
+
+                $sql = "SELECT * FROM `movies` ORDER BY title;";
                 break;
             default:
                 $sql = "SELECT * FROM `movies`;";
@@ -103,6 +116,11 @@ class HallucineModel extends Model{
 
     public function setMovieUserRating(int $userId, int $movieId, int $rate){
         $sql = "INSERT INTO `movies_users_ratings` (`user_id`, `movie_id`, `rate`) VALUES ('$userId', '$movieId', '$rate')";
+        $this->_getRows(HOST, DB_NAME, LOGIN, PASSWORD, $sql);
+    }
+
+    public function updateMovieUserRating(int $movieUserRatingId, int $rate){
+        $sql = "UPDATE `movies_users_ratings` SET `rate` = '$rate' WHERE `movies_users_ratings`.`id` = $movieUserRatingId";
         $this->_getRows(HOST, DB_NAME, LOGIN, PASSWORD, $sql);
     }
 

@@ -5,7 +5,12 @@ ob_start();
 if (isset($user)) {
     $userId = strval($user->getId());
     $movieId = strval($movie->getId());
-    $action = HallucineModel::MOVIE_USER_RATE;
+    if(isset($movieUserRating)){
+        $action = HallucineModel::MOVIE_USER_UPDATE_RATE;
+        // $rate =   
+    }else {
+        $action = HallucineModel::MOVIE_USER_RATE;
+    }
 }
 
 ?>
@@ -17,9 +22,10 @@ if (isset($user)) {
             <form id="form_rate" action="" method="post" style="display:<?= isset($user) ? "block" : "none"; ?>" >
                 <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="userId" value="<?= $userId; ?>">
                 <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="movieId" value="<?= $movieId; ?>">
+                <input style="display:<?= isset($movieUserRating) ? "block" : "none"; ?>" type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="movieUserRatingId" value="<?= isset($movieUserRating) ? $movieUserRating->getId() : "" ?>">
                 <input type="<?= IS_DEBUG ? "text" : "hidden"; ?>" name="action" value="<?= $action ?>">
-                <input type="number" placeholder="Noter ce film." name="rate" pattern="^([0-9]|[1-9][0-9]|100)$" value="<?=  IS_DEBUG ? random_int(5, 80) : ""; ?>">
-                <input type="submit" id='submit' value="<?= "Rate"; ?>" >
+                <input type="number" placeholder="Noter ce film." name="rate" pattern="^([0-9]|[1-9][0-9]|100)$" value="<?= isset($movieUserRating) ? $movieUserRating->getRate() : (IS_DEBUG ? random_int(5, 80) : "") ; ?>">
+                <input type="submit" id='submit' value="<?= isset($movieUserRating) ? "Update Rate" : "Rate"; ?>" >
             </form>
         </div>
         <div id="movie_section_content_right">
