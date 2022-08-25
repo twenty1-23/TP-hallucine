@@ -8,6 +8,7 @@ ob_start();
     <div id="movie_section_content">
         <div id="movie_section_content_left">
             <img src="<?= IMAGE_PATH.$movie->getImageUrl(); ?>" alt="<?= $movie->getTitle(); ?>">
+            
         </div>
         <div id="movie_section_content_right">
             <h2><?= $movie->getTitle(); ?></h2>
@@ -29,5 +30,6 @@ ob_start();
 $content = ob_get_clean();
 $pageTitle = "Halluciné - ".$movie->getTitle();
 $idBodyCss = "movie";
+$displayList = false;
 require "template.view.php";
 ?>

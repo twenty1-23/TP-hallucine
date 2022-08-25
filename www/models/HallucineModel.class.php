@@ -56,10 +56,10 @@ class HallucineModel extends Model{
                 $sql = "SELECT * FROM `movies` ORDER BY title;";
                 break;
             case self::SORT_MOVIES_BY_RELEASE_DATE:
-                $sql = "SELECT * FROM `movies` ORDER BY release_date;";
+                $sql = "SELECT * FROM `movies` ORDER BY release_date DESC;";
                 break;
             case self::SORT_MOVIES_BY_ADDED_DATE:
-                $sql = "SELECT * FROM `movies` ORDER BY added_date;";
+                $sql = "SELECT * FROM `movies` ORDER BY added_date DESC;";
                 break;
             default:
                 $sql = "SELECT * FROM `movies`;";

@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $hallucineController->showLogin();
                 break;
             case "movies":
-                $sort = isset($_GET['sort']) ? $_GET['sort'] : 0;
+                $sort = isset($_GET['sort']) ? $_GET['sort'] : HallucineModel::SORT_MOVIES_BY_TITLE;
                 $hallucineController->showMovies($sort);
                 break;
             case "movie":
