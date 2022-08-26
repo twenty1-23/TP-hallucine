@@ -69,14 +69,12 @@ class HallucineModel extends Model{
                 $sql = "SELECT * FROM `movies` ORDER BY added_date DESC;";
                 break;
             case self::SORT_MOVIES_BY_RATING:
-                $sql = "SELECT movies_users_ratings.movie_id, movies.title, AVG(movies_users_ratings.rate) as average_rate
+                $sql = "SELECT movies.*, AVG(movies_users_ratings.rate) as average_rate
                 FROM movies_users_ratings
-                    INNER JOIN movies
+                    RIGHT JOIN movies
                     ON movies_users_ratings.movie_id = movies.id
-                GROUP BY movies.id  
-                ORDER BY `average_rate` ASC";
-
-                $sql = "SELECT * FROM `movies` ORDER BY title;";
+                GROUP BY movies.id
+                ORDER BY average_rate DESC, movies.title;";
                 break;
             default:
                 $sql = "SELECT * FROM `movies`;";
