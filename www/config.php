@@ -6,8 +6,7 @@ define("IS_DEBUG", $_SERVER["HTTP_HOST"] == "localhost" || $getDebug ? true : fa
 define("HOST", "localhost");
 define("LOGIN", "root");
 define("DB_NAME", "hallucine");
-// define("PASSWORD", "Admin-01");
-define("PASSWORD", "");
+define("PASSWORD", "Admin-01");
 
 /** SITE PATH **/
 define("IMAGE_PATH", "image/");
