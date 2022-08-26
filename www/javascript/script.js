@@ -22,6 +22,17 @@ class MovieSection extends AbstractSection {
 
     constructor(sectionDiv){
         super(sectionDiv);
+        console.log("Movie Section",this.sectionDiv);
+    }
+
+    init(){
+        this.initProgressBar();
+        // console.log(this.sectionDiv);
+        super.init();
+    }
+    initProgressBar(){
+        const progressBar = new ProgressBar(this.sectionDiv.querySelector("#ratings"));
+        console.log("log progressBar",progressBar);
     }
 
     init(){
