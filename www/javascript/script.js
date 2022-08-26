@@ -31,8 +31,7 @@ class MovieSection extends AbstractSection {
 
     initPogressBar(){
         const progressBar = new ProgressBar(this.sectionDiv.querySelector("#rating"));
-        console.log(progressBar);
-        
+        progressBar.start();
     }
 
 }
@@ -45,25 +44,32 @@ class ProgressBar extends AbstractUIComponent{
         this.valueComponent = this.UIView.getAttribute("data-attr");
         this.intervalID;
         this.timer = 0;
+        this.boundProgress = this.progress.bind(this);
     }
 
     start(){
         if(super.value != -1){
-            this.intervalID = setInterval(progress, 20);
+            this.intervalID = setInterval(this.boundProgress, 25);
         }
     }
 
     stop(){
-
+        clearInterval(this.intervalID);
+        this.timer = 0;
     }
 
     progress(){
+        // console.log(this);
+        
         const limit = 1000;
         const percent = Math.round(this.timer / limit * 100);
         this.timer += 50;
         const progressBarDiv = this.UIView.querySelector("#progressBar");
         progressBarDiv.setAttribute("style", "width:" + percent.toString() + "%");
-
+        if(percent >= super.value){
+            this.stop();
+        }
+        
     }
 
 }

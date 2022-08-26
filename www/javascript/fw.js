@@ -30,7 +30,7 @@ class AbstractUIComponent extends EventTarget { // DIAG
     }
 
     get value(){
-        console.log("AbstractUIComponent", "get value");
+        console.log("AbstractUIComponent", "get value", this.valueComponent);
         
         return this.valueComponent;
     }
