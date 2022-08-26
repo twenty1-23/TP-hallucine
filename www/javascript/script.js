@@ -88,5 +88,6 @@ class ProgressBar extends AbstractUIComponent{
 const movieSectionDiv = document.querySelector("#movie_section");
 if(movieSectionDiv){
     const movieSection = new MovieSection(movieSectionDiv);
+    // console.log(movieSection);
     movieSection.init();
 }
